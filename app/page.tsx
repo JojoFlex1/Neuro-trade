@@ -1,157 +1,99 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Bot } from "lucide-react"
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Cpu, BarChart, Wallet, ZapIcon, ShieldIcon, BotIcon } from "lucide-react"
+// app/page.tsx
+import DashboardCard from '@/components/DashboardCard'
+import LearnMoreButton from '@/components/LearnMoreButton'
+import { BarChart2, PlusCircle, Settings, Twitter, Facebook, Instagram } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
-          <Bot className="h-6 w-6 mr-2" />
-          <span className="font-bold">NeuroTrade</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features">
-            Features
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#bots">
-            Bots
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#cta">
+    <div className="min-h-screen bg-beige-100 text-neutral-800 font-sans">
+      <header className="bg-beige-200 py-6 px-8 mb-12">
+        <h1 className="text-4xl font-bold text-center text-neutral-800">NeuroTrade</h1>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-8">
+        <section className="text-center mb-24">
+          <h2 className="text-3xl font-light mb-6 text-neutral-700">
+            Crafted for the modern connoisseur of automated trading—where sophistication meets strategy.
+          </h2>
+          <LearnMoreButton />
+        </section>
+
+        <section className="mb-24">
+          <h2 className="text-2xl font-semibold mb-8 text-center text-neutral-700">Our Platform</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <DashboardCard title="Account Summary" icon={<BarChart2 className="w-5 h-5" />}>
+              <p>Total P/L: $10,245</p>
+              <p>Active Bots: 3</p>
+              <p>Total Trades: 156</p>
+            </DashboardCard>
+            <DashboardCard title="Bot Activity" icon={<PlusCircle className="w-5 h-5" />}>
+              <p>Top Bot: AlphaTrader</p>
+              <p>24h Performance: +2.3%</p>
+            </DashboardCard>
+            <DashboardCard title="Quick Actions" icon={<Settings className="w-5 h-5" />}>
+              <Link href="/create-bot" className="block w-full text-left py-2 hover:text-neutral-600">Create New Bot</Link>
+              <Link href="/my-bots" className="block w-full text-left py-2 hover:text-neutral-600">Manage Existing Bots</Link>
+              <Link href="/trade-history" className="block w-full text-left py-2 hover:text-neutral-600">View Trade History</Link>
+            </DashboardCard>
+          </div>
+        </section>
+
+        <section className="mb-24">
+          <h2 className="text-2xl font-semibold mb-8 text-center text-neutral-700">Why Choose NeuroTrade?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-beige-200 p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold mb-4 text-neutral-700">Advanced AI Algorithms</h3>
+              <p className="text-neutral-600">Our cutting-edge AI algorithms analyze market trends and execute trades with precision, maximizing your potential for profit.</p>
+            </div>
+            <div className="bg-beige-200 p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold mb-4 text-neutral-700">User-Friendly Interface</h3>
+              <p className="text-neutral-600">Navigate our platform with ease. NeuroTrade combines powerful features with intuitive design for a seamless trading experience.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="text-center mb-24">
+          <Link 
+            href="/create-bot"
+            className="inline-block bg-neutral-800 text-white px-8 py-3 rounded-md hover:bg-neutral-700 transition-colors text-lg font-semibold"
+          >
             Get Started
           </Link>
-        </nav>
-      </header>
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Supercharge Your Trading
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Automated bots designed to maximize your profits in the trading ecosystem. Trade smarter, faster, and
-                  more efficiently.
-                </p>
-              </div>
-              <div className="space-x-4">
-                <Button>
-                  Connect Wallet <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button variant="outline">Learn More</Button>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">
-              Why Choose NeuroTrade
-            </h2>
-            <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
-              <div className="flex flex-col items-center space-y-3 text-center">
-                <ZapIcon className="h-12 w-12 text-primary" />
-                <h3 className="text-xl font-bold">Lightning Fast</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Execute trades at incredible speeds, taking advantage of market opportunities in milliseconds.
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-3 text-center">
-                <ShieldIcon className="h-12 w-12 text-primary" />
-                <h3 className="text-xl font-bold">Secure & Reliable</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Built with top-notch security measures to keep your assets safe while trading 24/7.
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-3 text-center">
-                <BotIcon className="h-12 w-12 text-primary" />
-                <h3 className="text-xl font-bold">Advanced Algorithms</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Leverage sophisticated trading strategies optimized for the ecosystem.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="cta" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Ready to Boost Your Trading?</h2>
-                <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Join thousands of traders already benefiting from our advanced bots. Start your journey to
-                  smarter trading today.
-                </p>
-              </div>
-              <div className="w-full max-w-sm space-y-2">
-                <Button className="w-full">Connect Wallet Now</Button>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  No credit card required. Start with a free trial.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="bots" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Our Trading Bots</h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[ 
-                {
-                  icon: Cpu,
-                  name: "TradeMaster Pro",
-                  description: "Advanced algorithmic trading for experienced users",
-                },
-                {
-                  icon: BarChart,
-                  name: "MarketSense AI",
-                  description: "AI-powered market analysis and trade execution",
-                },
-                {
-                  icon: Wallet,
-                  name: "YieldHarvester",
-                  description: "Optimize your DeFi yields across various protocols",
-                },
-                { icon: ZapIcon, name: "FlashArb", description: "Lightning-fast arbitrage bot for maximum profits" },
-                {
-                  icon: ShieldIcon,
-                  name: "GuardianBot",
-                  description: "Secure your assets with automated risk management",
-                },
-                { icon: BotIcon, name: "SolSniper", description: "Snipe the best deals on NFT marketplaces" },
-              ].map((bot, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <bot.icon className="w-10 h-10 mb-2 text-primary" />
-                    <CardTitle>{bot.name}</CardTitle>
-                    <CardDescription>{bot.description}</CardDescription>
-                  </CardHeader>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full">
-                      Learn More
-                    </Button>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-          </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 NeuroTrade. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </Link>
-        </nav>
+
+      <footer className="bg-beige-200 py-12 px-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-neutral-700">Support</h3>
+            <ul className="space-y-2 text-neutral-600">
+              <li><Link href="/faq">FAQ</Link></li>
+              <li><Link href="/contact">Contact Us</Link></li>
+              <li><Link href="/help">Help Center</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-neutral-700">Legal</h3>
+            <ul className="space-y-2 text-neutral-600">
+              <li><Link href="/terms">Terms and Conditions</Link></li>
+              <li><Link href="/privacy">Privacy Policy</Link></li>
+              <li><Link href="/disclaimer">Risk Disclaimer</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-neutral-700">Connect</h3>
+            <div className="flex space-x-4">
+              <Link href="#" className="text-neutral-600 hover:text-neutral-800"><Twitter className="w-6 h-6" /></Link>
+              <Link href="#" className="text-neutral-600 hover:text-neutral-800"><Facebook className="w-6 h-6" /></Link>
+              <Link href="#" className="text-neutral-600 hover:text-neutral-800"><Instagram className="w-6 h-6" /></Link>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 text-center text-neutral-600">
+          <p>&copy; 2023 NeuroTrade. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   )
 }
-

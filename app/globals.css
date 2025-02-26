@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+html, body {
+  height: 100%;
 }
 
-@layer base {
-  :root {
-    --radius: 0.5rem;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
 }
