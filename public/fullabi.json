@@ -1,0 +1,486 @@
+[
+    {
+        "type": "constructor",
+        "name": "constructor",
+        "inputs": [
+            {
+                "name": "admin_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "backend_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "proxy_admin_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "eth_token_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "initial_implementation",
+                "type": "core::starknet::class_hash::ClassHash"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "propose_upgrade",
+        "inputs": [
+            {
+                "name": "new_implementation",
+                "type": "core::starknet::class_hash::ClassHash"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "upgrade",
+        "inputs": [],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "toggle_upgrade_pause",
+        "inputs": [],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "change_proxy_admin",
+        "inputs": [
+            {
+                "name": "new_proxy_admin",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "authorize_asset",
+        "inputs": [
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "update_backend",
+        "inputs": [
+            {
+                "name": "new_backend",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "pause_trading",
+        "inputs": [],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "resume_trading",
+        "inputs": [],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "struct",
+        "name": "core::integer::u256",
+        "members": [
+            {
+                "name": "low",
+                "type": "core::integer::u128"
+            },
+            {
+                "name": "high",
+                "type": "core::integer::u128"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "withdraw",
+        "inputs": [
+            {
+                "name": "amount",
+                "type": "core::integer::u256"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "enum",
+        "name": "core::bool",
+        "variants": [
+            {
+                "name": "False",
+                "type": "()"
+            },
+            {
+                "name": "True",
+                "type": "()"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "record_trade_result",
+        "inputs": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256"
+            },
+            {
+                "name": "is_profit",
+                "type": "core::bool"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "get_balance",
+        "inputs": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "core::integer::u256"
+            }
+        ],
+        "state_mutability": "view"
+    },
+    {
+        "type": "struct",
+        "name": "bot_project::UpgradeableFundsManagementContract::Transaction",
+        "members": [
+            {
+                "name": "timestamp",
+                "type": "core::integer::u64"
+            },
+            {
+                "name": "tx_type",
+                "type": "core::integer::u8"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "get_transaction",
+        "inputs": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "tx_index",
+                "type": "core::integer::u64"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bot_project::UpgradeableFundsManagementContract::Transaction"
+            }
+        ],
+        "state_mutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "get_transaction_count",
+        "inputs": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "core::integer::u64"
+            }
+        ],
+        "state_mutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "is_trading_paused",
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "core::bool"
+            }
+        ],
+        "state_mutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "get_deposit_limit",
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "core::integer::u256"
+            }
+        ],
+        "state_mutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "get_upgrade_status",
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "(core::starknet::class_hash::ClassHash, core::integer::u64, core::bool)"
+            }
+        ],
+        "state_mutability": "view"
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::Deposit",
+        "kind": "struct",
+        "members": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256",
+                "kind": "data"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::Withdrawal",
+        "kind": "struct",
+        "members": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256",
+                "kind": "data"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::ProfitRecorded",
+        "kind": "struct",
+        "members": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256",
+                "kind": "data"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::LossRecorded",
+        "kind": "struct",
+        "members": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256",
+                "kind": "data"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::TradingPaused",
+        "kind": "struct",
+        "members": []
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::TradingResumed",
+        "kind": "struct",
+        "members": []
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::PlatformFeeCollected",
+        "kind": "struct",
+        "members": [
+            {
+                "name": "user",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256",
+                "kind": "data"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress",
+                "kind": "data"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::ImplementationUpgraded",
+        "kind": "struct",
+        "members": [
+            {
+                "name": "new_implementation",
+                "type": "core::starknet::class_hash::ClassHash",
+                "kind": "data"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::UpgradeProposed",
+        "kind": "struct",
+        "members": [
+            {
+                "name": "proposed_implementation",
+                "type": "core::starknet::class_hash::ClassHash",
+                "kind": "data"
+            },
+            {
+                "name": "proposed_timestamp",
+                "type": "core::integer::u64",
+                "kind": "data"
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "name": "bot_project::UpgradeableFundsManagementContract::Event",
+        "kind": "enum",
+        "variants": [
+            {
+                "name": "Deposit",
+                "type": "bot_project::UpgradeableFundsManagementContract::Deposit",
+                "kind": "nested"
+            },
+            {
+                "name": "Withdrawal",
+                "type": "bot_project::UpgradeableFundsManagementContract::Withdrawal",
+                "kind": "nested"
+            },
+            {
+                "name": "ProfitRecorded",
+                "type": "bot_project::UpgradeableFundsManagementContract::ProfitRecorded",
+                "kind": "nested"
+            },
+            {
+                "name": "LossRecorded",
+                "type": "bot_project::UpgradeableFundsManagementContract::LossRecorded",
+                "kind": "nested"
+            },
+            {
+                "name": "TradingPaused",
+                "type": "bot_project::UpgradeableFundsManagementContract::TradingPaused",
+                "kind": "nested"
+            },
+            {
+                "name": "TradingResumed",
+                "type": "bot_project::UpgradeableFundsManagementContract::TradingResumed",
+                "kind": "nested"
+            },
+            {
+                "name": "PlatformFeeCollected",
+                "type": "bot_project::UpgradeableFundsManagementContract::PlatformFeeCollected",
+                "kind": "nested"
+            },
+            {
+                "name": "ImplementationUpgraded",
+                "type": "bot_project::UpgradeableFundsManagementContract::ImplementationUpgraded",
+                "kind": "nested"
+            },
+            {
+                "name": "UpgradeProposed",
+                "type": "bot_project::UpgradeableFundsManagementContract::UpgradeProposed",
+                "kind": "nested"
+            }
+        ]
+    }
+]

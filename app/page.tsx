@@ -32,7 +32,7 @@ export default function Home() {
               <p>24h Performance: +2.3%</p>
             </DashboardCard>
             <DashboardCard title="Quick Actions" icon={<Settings className="w-5 h-5" />}>
-              <Link href="/create-bot" className="block w-full text-left py-2 hover:text-neutral-600">Create New Bot</Link>
+              <Link href="/-bot" className="block w-full text-left py-2 hover:text-neutral-600">Create New Bot</Link>
               <Link href="/my-bots" className="block w-full text-left py-2 hover:text-neutral-600">Manage Existing Bots</Link>
               <Link href="/trade-history" className="block w-full text-left py-2 hover:text-neutral-600">View Trade History</Link>
             </DashboardCard>
@@ -55,7 +55,7 @@ export default function Home() {
 
         <section className="text-center mb-24">
           <Link 
-            href="/create-bot"
+            href="/createbot"
             className="inline-block bg-neutral-800 text-white px-8 py-3 rounded-md hover:bg-neutral-700 transition-colors text-lg font-semibold"
           >
             Get Started

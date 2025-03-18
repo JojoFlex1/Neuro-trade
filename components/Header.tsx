@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -8,7 +10,7 @@ export default function Header() {
   const [showText, setShowText] = useState(true);
 
   return (
-    <header className="py-6 px-8 flex justify-between items-center bg-white shadow-md relative">
+    <header className="py-6 px-8 flex justify-between items-center shadow-md relative">
       {/* Centered Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
         {showText ? (
@@ -37,7 +39,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute right-0 mt-2 w-48 min-w-[160px] bg-white rounded-lg shadow-lg border border-gray-200 z-50"
+            className="absolute right-0 mt-2 w-48 min-w-[160px] rounded-lg shadow-lg border border-gray-200 z-50"
           >
             {[
               "Dashboard",
