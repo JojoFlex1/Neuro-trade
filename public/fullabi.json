@@ -64,44 +64,6 @@
         "state_mutability": "external"
     },
     {
-        "type": "function",
-        "name": "authorize_asset",
-        "inputs": [
-            {
-                "name": "asset_address",
-                "type": "core::starknet::contract_address::ContractAddress"
-            }
-        ],
-        "outputs": [],
-        "state_mutability": "external"
-    },
-    {
-        "type": "function",
-        "name": "update_backend",
-        "inputs": [
-            {
-                "name": "new_backend",
-                "type": "core::starknet::contract_address::ContractAddress"
-            }
-        ],
-        "outputs": [],
-        "state_mutability": "external"
-    },
-    {
-        "type": "function",
-        "name": "pause_trading",
-        "inputs": [],
-        "outputs": [],
-        "state_mutability": "external"
-    },
-    {
-        "type": "function",
-        "name": "resume_trading",
-        "inputs": [],
-        "outputs": [],
-        "state_mutability": "external"
-    },
-    {
         "type": "struct",
         "name": "core::integer::u256",
         "members": [
@@ -114,6 +76,22 @@
                 "type": "core::integer::u128"
             }
         ]
+    },
+    {
+        "type": "function",
+        "name": "deposit",
+        "inputs": [
+            {
+                "name": "amount",
+                "type": "core::integer::u256"
+            },
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
     },
     {
         "type": "function",
@@ -166,6 +144,44 @@
                 "type": "core::starknet::contract_address::ContractAddress"
             }
         ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "authorize_asset",
+        "inputs": [
+            {
+                "name": "asset_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "update_backend",
+        "inputs": [
+            {
+                "name": "new_backend",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "pause_trading",
+        "inputs": [],
+        "outputs": [],
+        "state_mutability": "external"
+    },
+    {
+        "type": "function",
+        "name": "resume_trading",
+        "inputs": [],
         "outputs": [],
         "state_mutability": "external"
     },
