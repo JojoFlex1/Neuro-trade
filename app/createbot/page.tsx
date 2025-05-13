@@ -15,12 +15,12 @@ import { connect } from "get-starknet";
 export default function CreateBotPage() {
   const router = useRouter();
   const [walletConnected, setWalletConnected] = useState(false);
-  const [walletAddress, setWalletAddress] = useState("");
-  const [selectedStrategy, setSelectedStrategy] = useState("");
+  const [walletAddress, setWalletAddress] = useState<any>("");
+  const [selectedStrategy, setSelectedStrategy] = useState<any>("");
   const [depositMade, setDepositMade] = useState(false);
-  const [showDepositAlert, setShowDepositAlert] = useState(false);
-  const [starknetProvider, setStarknetProvider] = useState(null);
-  const [starknetContract, setStarknetContract] = useState(null);
+  const [showDepositAlert, setShowDepositAlert] = useState<any>(false);
+  const [starknetProvider, setStarknetProvider] = useState<any>(null);
+  const [starknetContract, setStarknetContract] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [botParams, setBotParams] = useState({
     botName: "",
@@ -47,7 +47,7 @@ export default function CreateBotPage() {
 
       // Get the wallet address
       const address = starknetProvider.selectedAddress;
-      setWalletAddress(address);
+      setWalletAddress(address!);
       setWalletConnected(true);
       setStarknetProvider(starknetProvider);
 
@@ -315,7 +315,7 @@ function StrategyForm({
   riskLevel,
   isCustom = false,
   isLoading = false,
-}) {
+}: any) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setBotParams((prev) => ({
