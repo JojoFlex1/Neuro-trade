@@ -58,19 +58,24 @@ export default function CreateBotPage() {
         console.log("Contract initialized successfully:", contract);
       }
 
-      console.log("Starknet wallet connected:", address);
+ console.log("Starknet wallet connected:", address);
 
-    } catch (error) {
-      if (error.message && error.message.includes("wallet not installed")) {
-        alert("Please install a Starknet wallet extension.");
-      } else {
-        alert("Failed to connect wallet. Please try again.");
-      }
-      console.error("Error connecting wallet:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+} catch (error: unknown) {
+  if (
+    typeof error === 'object' && 
+    error !== null && 
+    'message' in error && 
+    typeof error.message === 'string' && 
+    error.message.includes("wallet not installed")
+  ) {
+    alert("Please install a Starknet wallet extension.");
+  } else {
+    alert("Failed to connect wallet. Please try again.");
+  }
+  console.error("Error connecting wallet:", error);
+} finally {
+  setIsLoading(false);
+}
 
   // Define the loadContract function
   async function loadContract(provider) {
