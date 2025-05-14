@@ -116,10 +116,11 @@ export default function PortfolioPage() {
   ]
 
   // Format wallet address for display
-  const formatAddress = (address) => {
-    if (!address) return ""
-    return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`
-  }
+const formatAddress = (address: string): string => {
+  if (!address) return "";
+  return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+};
+
 
   // Format currency
   const formatCurrency = (amount) => {
